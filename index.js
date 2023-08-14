@@ -4,19 +4,17 @@ let string="";
  
 buttons.forEach(button => {
     button.addEventListener("click",(e)=>{
-        if (e.target.innerHTML == "=") {
-            string=eval(string);
+        if (e.target.innerHTML === "=") {
+            string=eval(string.replace("%","/100"));
             display.value=string;   
         }
-        else if( e.target.innerHTML == "AC"){
+        else if( e.target.innerHTML === "AC"){
             string="";
             display.value=string;
         }
-        else if( e.target.innerHTML== "DE" ){
+        else if( e.target.innerHTML === "DE" ){
             string=string.substring(0,string.length-1);
             display.value=string;
-        }else if( e.target.innerHTML == "%"){
-            string=string.replace(("%","/100"));
         }
         else{
         string+=e.target.innerHTML;
